@@ -1,0 +1,10 @@
+{
+  "description": "Offers natural honey products from a Moroccan cooperative with detailed pricing, free local delivery, international shipping, and user-friendly ordering.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

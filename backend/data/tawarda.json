@@ -1,0 +1,138 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "المدير",
+      "email": "admin@tawarda.ma",
+      "password": "$2b$10$wRJazW4e3DSdVmTVaRque.A1EsvgFZPuh.fL.Rw9N0VV9UW57S3qK",
+      "is_admin": true,
+      "created_at": "2026-08-11T18:55:51.189Z"
+    },
+    {
+      "id": 2,
+      "name": "Youssef",
+      "email": "youssef@test.ma",
+      "password": "$2b$10$7DtDvoEYsKZ1xoSNyJ47c.TQiYNcsClCkcaTAeXCv/qQbn8iRuAaS",
+      "is_admin": false,
+      "created_at": "2026-08-25T19:14:49.447Z"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name_ar": "عسل المرونة",
+      "name_fr": "Miel d'Arbousier",
+      "description": "عسل نقي من أزهار شجرة المرونة الجبلية النادرة",
+      "benefits": "مضاد للأكسدة، يقوي المناعة، مفيد للجهاز الهضمي",
+      "image": "https://images.unsplash.com/photo-1536788567643-8c2368376526?w=500&h=500&fit=crop&auto=format",
+      "prices": {
+        "1 كيلو": 500,
+        "500 غ": 250,
+        "250 غ": 130
+      },
+      "badge": "الأكثر مبيعاً",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name_ar": "عسل الزعتر",
+      "name_fr": "Miel de Thym",
+      "description": "عسل أصيل من أزهار الزعتر البري في جبال شفشاون",
+      "benefits": "مضاد للبكتيريا، يقوي الجهاز التنفسي، مفيد للمناعة",
+      "image": "https://images.unsplash.com/photo-1623018697148-8350cf18e64e?w=500&h=500&fit=crop&auto=format",
+      "prices": {
+        "1 كيلو": 350,
+        "500 غ": 180,
+        "250 غ": 90
+      },
+      "badge": null,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name_ar": "عسل الخروب",
+      "name_fr": "Miel de Caroube",
+      "description": "عسل فاخر من أزهار شجرة الخروب الأصيلة",
+      "benefits": "غني بالمعادن، ينظم سكر الدم، مفيد للعظام",
+      "image": "https://images.unsplash.com/photo-1642067958024-1a2d9f836920?w=500&h=500&fit=crop&auto=format",
+      "prices": {
+        "1 كيلو": 300,
+        "500 غ": 150,
+        "250 غ": 80
+      },
+      "badge": null,
+      "active": true
+    },
+    {
+      "id": 4,
+      "name_ar": "عسل الكاليبتوس",
+      "name_fr": "Miel d'Eucalyptus",
+      "description": "عسل طبيعي من أزهار أشجار الكاليبتوس العطرية",
+      "benefits": "مطهر طبيعي، يخفف أعراض البرد، يوسع الشعب الهوائية",
+      "image": "https://images.unsplash.com/photo-1718146921295-700b969e7c78?w=500&h=500&fit=crop&auto=format",
+      "prices": {
+        "1 كيلو": 200,
+        "500 غ": 100,
+        "250 غ": 50
+      },
+      "badge": null,
+      "active": true
+    },
+    {
+      "id": 5,
+      "name_ar": "عسل الأعشاب",
+      "name_fr": "Miel Multi-Fleurs",
+      "description": "مزيج رائع من عسل أزهار الجبل المتعددة والمتنوعة",
+      "benefits": "مغذي شامل، يعزز الطاقة، يوفر فيتامينات متعددة",
+      "image": "https://images.unsplash.com/photo-1642067958050-bfba120a57e2?w=500&h=500&fit=crop&auto=format",
+      "prices": {
+        "1 كيلو": 200,
+        "500 غ": 100,
+        "250 غ": 50
+      },
+      "badge": null,
+      "active": true
+    },
+    {
+      "id": 6,
+      "name_ar": "عسل الأرز",
+      "name_fr": "Miel de Cèdre",
+      "description": "عسل نادر وثمين من أزهار أشجار الأرز الجبلية الشامخة",
+      "benefits": "نادر جداً، يقوي الذاكرة، غني بمضادات الأكسدة",
+      "image": "https://images.unsplash.com/photo-1717438671329-077f530f0c0d?w=500&h=500&fit=crop&auto=format",
+      "prices": {
+        "1 كيلو": 500,
+        "500 غ": 250,
+        "250 غ": 180
+      },
+      "badge": "نادر",
+      "active": true
+    }
+  ],
+  "orders": [
+    {
+      "id": "TAW-559401-GTN",
+      "user_id": 1,
+      "items": [
+        {
+          "productId": 1,
+          "nameAr": "عسل المرونة",
+          "size": "1 كيلو",
+          "qty": 2,
+          "price": 500
+        }
+      ],
+      "total": 1000,
+      "delivery": 0,
+      "name": "أحمد",
+      "phone": "0612345678",
+      "city": "شفشاون",
+      "address": "حي الأزهار",
+      "payment": "cash",
+      "notes": null,
+      "status": "pending",
+      "created_at": "2026-08-11T18:55:59.401Z"
+    }
+  ],
+  "_nextUserId": 3
+}

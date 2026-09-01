@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: mon_site_complet
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
