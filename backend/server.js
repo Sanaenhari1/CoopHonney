@@ -55,3 +55,4 @@ app.listen(PORT, () => {
   console.log(`🍯 تعاونية تاوردة API v2.0 — http://localhost:${PORT}`)
   console.log(`   Admin: admin@tawarda.ma / tawarda2024`)
 })
+export default app;
