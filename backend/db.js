@@ -31,7 +31,12 @@ const defaultData = {
 
 const db = new LowSync(adapter, defaultData)
 
-db.read()
+try {
+  db.read()
+} catch (error) {
+  console.error('Database read failed, recreating the local store:', error)
+  db.data = structuredClone(defaultData)
+}
 
 if (!db.data) db.data = structuredClone(defaultData)
 
