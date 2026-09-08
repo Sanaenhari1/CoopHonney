@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import db, { save } from '../db.js'
+import db, { nextContactId, save } from '../db.js'
 
 const router = Router()
 
@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
   if (!name || !message) return res.status(400).json({ error: 'الاسم والرسالة مطلوبان' })
   if (!db.data.contacts) db.data.contacts = []
   db.data.contacts.push({
-    id: Date.now(),
+    id: nextContactId(),
     name, phone: phone || '', email: email || '', message,
     created_at: new Date().toISOString(),
     read: false,

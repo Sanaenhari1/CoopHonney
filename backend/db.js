@@ -6,7 +6,7 @@ import { mkdirSync } from 'node:fs'
 import bcrypt from 'bcryptjs'
 
 const __dir = dirname(fileURLToPath(import.meta.url))
-const dataDir = join(__dir, 'data')
+const dataDir = process.env.TAWARDA_DATA_DIR || (process.env.VERCEL ? '/tmp/tawarda-data' : join(__dir, 'data'))
 mkdirSync(dataDir, { recursive: true })
 
 const adapter = new JSONFileSync(join(dataDir, 'tawarda.json'))
@@ -24,7 +24,9 @@ const db = new LowSync(adapter, {
   users: [],
   products: PRODUCTS_SEED,
   orders: [],
+  contacts: [],
   _nextUserId: 2,
+  _nextContactId: 1,
 })
 
 db.read()
@@ -33,7 +35,9 @@ db.read()
 if (!db.data.users) db.data.users = []
 if (!db.data.products || db.data.products.length === 0) db.data.products = PRODUCTS_SEED
 if (!db.data.orders) db.data.orders = []
+if (!db.data.contacts) db.data.contacts = []
 if (!db.data._nextUserId) db.data._nextUserId = 2
+if (!db.data._nextContactId) db.data._nextContactId = Math.max(0, ...db.data.contacts.map(c => c.id || 0)) + 1
 
 // Seed admin account
 const adminExists = db.data.users.find(u => u.email === 'admin@tawarda.ma')
@@ -59,6 +63,13 @@ export function getOrders() { return db.data.orders }
 export function nextUserId() {
   const id = db.data._nextUserId
   db.data._nextUserId++
+  db.write()
+  return id
+}
+
+export function nextContactId() {
+  const id = db.data._nextContactId
+  db.data._nextContactId++
   db.write()
   return id
 }
