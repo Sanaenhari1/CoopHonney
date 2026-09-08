@@ -20,16 +20,20 @@ const PRODUCTS_SEED = [
   { id: 6, name_ar: 'عسل الأرز', name_fr: 'Miel de Cèdre', description: 'عسل نادر وثمين من أزهار أشجار الأرز الجبلية الشامخة', benefits: 'نادر جداً، يقوي الذاكرة، غني بمضادات الأكسدة', image: 'https://images.unsplash.com/photo-1717438671329-077f530f0c0d?w=500&h=500&fit=crop&auto=format', prices: { '1 كيلو': 500, '500 غ': 250, '250 غ': 180 }, badge: 'نادر', active: true },
 ]
 
-const db = new LowSync(adapter, {
+const defaultData = {
   users: [],
   products: PRODUCTS_SEED,
   orders: [],
   contacts: [],
   _nextUserId: 2,
   _nextContactId: 1,
-})
+}
+
+const db = new LowSync(adapter, defaultData)
 
 db.read()
+
+if (!db.data) db.data = structuredClone(defaultData)
 
 // Ensure required keys exist (migrations)
 if (!db.data.users) db.data.users = []

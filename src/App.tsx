@@ -946,8 +946,13 @@ function AdminPage({ notify, products: initProducts, setProducts }: {
   const SL: Record<string, string> = { pending: 'قيد الانتظار', confirmed: 'تم التأكيد', delivered: 'تم التوصيل', cancelled: 'ملغي' }
 
   async function changeStatus(id: string, status: ApiOrder['status']) {
-    try { await apiUpdateOrderStatus(id, status); setOrders(prev => prev.map(o => o.id === id ? { ...o, status } : o)); notify('تم التحديث ✓') }
-    catch { notify('فشل') }
+    try {
+      await apiUpdateOrderStatus(id, status)
+      setOrders(prev => prev.map(o => o.id === id ? { ...o, status } : o))
+      notify('تم التحديث ✓')
+    } catch (error) {
+      notify((error as Error).message || 'فشل تحديث حالة الطلب')
+    }
   }
 
   async function toggleProduct(id: number, active: boolean) {
